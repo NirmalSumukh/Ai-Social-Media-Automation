@@ -357,16 +357,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 <div align="center">
 
-### 🌟 **Built with ❤️ for the Humanity Founders Hackathon**
-
-[![GitHub stars](https://img.shields.io/github/stars/YOUR_USERNAME/ai-social-platform?style=social)](https://github.com/YOUR_USERNAME/ai-social-platform)
-[![GitHub forks](https://img.shields.io/github/forks/YOUR_USERNAME/ai-social-platform?style=social)](https://github.com/YOUR_USERNAME/ai-social-platform)
-
-**Made by**: [Your Name] | **Contact**: [Your Email] | **LinkedIn**: [Your Profile]
+**Made by**: Sumukh Nirmal | **Contact**: sumukhn15@gmail.com | **LinkedIn**: SumukhNirmal
 
 </div>
 
-[1](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/collection_225525fe-7fe1-4e67-b2b6-e40c71a172a9/665afe4f-9a44-4c18-8129-0eac0a331597/Humanitiy-Founders-Hackathon.txt)
-[2](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/collection_225525fe-7fe1-4e67-b2b6-e40c71a172a9/d52de04b-06dc-4210-b22f-4510abd528e8/Backend-Setup.md)
-[3](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/collection_225525fe-7fe1-4e67-b2b6-e40c71a172a9/95695d55-7f0d-4943-9d04-20a885c361e8/Docker-Setup.md)
-[4](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/collection_225525fe-7fe1-4e67-b2b6-e40c71a172a9/fd9afab3-bba4-44eb-a1df-4f460f0f4156/Structure.txt)
