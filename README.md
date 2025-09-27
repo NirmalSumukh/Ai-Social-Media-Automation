@@ -341,17 +341,6 @@ We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
----
-
-## 🏆 **Hackathon Submission**
-
-**Team**: [Your Team Name]  
-**Event**: Humanity Founders Hackathon 2025  
-**Category**: Full-Stack AI Platform  
-**Submission Date**: September 27, 2025  
-
-### **Live Demo**: [Add your demo link]
-### **Video Walkthrough**: [Add your video link]
 
 ---
 
