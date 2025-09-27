@@ -1,0 +1,133 @@
+version: "3.9"
+
+name: ai-social-platform
+
+networks:
+  backend:
+    driver: bridge
+
+volumes:
+  pgdata:
+  redisdata:
+  next-cache:
+
+services:
+  db:
+    image: postgres:15
+    container_name: db
+    environment:
+      POSTGRES_USER: appuser
+      POSTGRES_PASSWORD: appsecret
+      POSTGRES_DB: appdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U appuser -d appdb"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks:
+      - backend
+
+  redis:
+    image: redis:7-alpine
+    container_name: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redisdata:/data
+    command: ["redis-server", "--appendonly", "yes"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    networks:
+      - backend
+
+  api-gateway:
+    build:
+      context: ../services/api-gateway
+      dockerfile: Dockerfile
+    container_name: api-gateway
+    working_dir: /app
+    restart: "no"
+    env_file:
+      - ../services/api-gateway/.env
+    environment:
+      DATABASE_URL: postgresql://appuser:appsecret@db:5432/appdb
+      REDIS_URL: redis://redis:6379/0
+      ENV: docker
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "curl -sf http://localhost:8000/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks:
+      - backend
+
+  automation-backend:
+    build:
+      context: ../services/automation-backend
+      dockerfile: Dockerfile
+    container_name: automation-backend
+    env_file:
+      - ../services/automation-backend/.env
+    environment:
+      REDIS_URL: redis://redis:6379/1
+      API_BASE_URL: http://api-gateway:8000
+      ENV: docker
+    depends_on:
+      redis:
+        condition: service_healthy
+      api-gateway:
+        condition: service_started
+    networks:
+      - backend
+
+  worker-scheduler:
+    build:
+      context: ../apps/worker-scheduler
+      dockerfile: Dockerfile
+    container_name: worker-scheduler
+    env_file:
+      - ../apps/worker-scheduler/.env
+    environment:
+      REDIS_URL: redis://redis:6379/2
+      API_BASE_URL: http://api-gateway:8000
+      TZ: UTC
+    depends_on:
+      redis:
+        condition: service_healthy
+      api-gateway:
+        condition: service_started
+    networks:
+      - backend
+
+  web-client:
+    build:
+      context: ../apps/web-client
+      dockerfile: Dockerfile
+    container_name: web-client
+    environment:
+      # Use localhost here so the browser can connect to the API gateway
+      NEXT_PUBLIC_API_URL: http://localhost:8000
+      NODE_ENV: production
+    ports:
+      - "3000:3000"
+    depends_on:
+      api-gateway:
+        condition: service_started
+    volumes:
+      - next-cache:/app/.next/cache
+    networks:
+      - backend
