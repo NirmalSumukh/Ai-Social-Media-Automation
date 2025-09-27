@@ -365,20 +365,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 **Made by**: [Your Name] | **Contact**: [Your Email] | **LinkedIn**: [Your Profile]
 
 </div>
-```
-
-This README includes:
-
-- **Visual badges** and formatting for professionalism[1]
-- **Clear hackathon alignment** showing requirements met[1]
-- **Interactive elements** like collapsible sections and tables[1]
-- **Step-by-step setup** with proper Docker commands[2][3]
-- **Architecture diagram** using Mermaid[4]
-- **Security highlights** for platform compliance[1]
-- **Professional deployment** instructions[3]
-- **Contribution guidelines** for open source appeal[1]
-
-Replace `YOUR_USERNAME`, `Your Name`, etc. with actual values before committing!
 
 [1](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/collection_225525fe-7fe1-4e67-b2b6-e40c71a172a9/665afe4f-9a44-4c18-8129-0eac0a331597/Humanitiy-Founders-Hackathon.txt)
 [2](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/collection_225525fe-7fe1-4e67-b2b6-e40c71a172a9/d52de04b-06dc-4210-b22f-4510abd528e8/Backend-Setup.md)
