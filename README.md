@@ -1,6 +1,3 @@
-Here's an attractive, interactive README that will impress hackathon organizers with proper formatting, badges, emojis, and clear sections:
-
-```markdown
 <div align="center">
 
 # 🚀 AI Social Platform
